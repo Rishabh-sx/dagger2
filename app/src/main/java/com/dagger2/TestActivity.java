@@ -10,9 +10,14 @@ import com.dagger2.pojo.Car;
 import com.dagger2.pojo.Engine;
 import com.dagger2.pojo.Wheels;
 
+import javax.inject.Inject;
+
 public class TestActivity extends AppCompatActivity {
 
-    private Car car;
+    //Dagger field injection does not works with private & final fields
+    //as it internally access the fields object of consumer class and inject
+    //the field dependencies.
+    @Inject public Car car;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +25,8 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
 
         CarComponent component = DaggerCarComponent.create();
+        component.inject(this);
 
-        car = component.getCar();
         car.drive();
     }
 }
