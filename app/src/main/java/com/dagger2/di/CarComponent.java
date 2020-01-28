@@ -12,6 +12,9 @@ public interface CarComponent {
     // only interested in return type of the method.
     Car getCar();
 
+    // Field injection is meant for framework types
+    // data entry instantiates like activities and fragment as
+    // we do not own framework instantiates and hence can't do construction injection.
     void inject(TestActivity testActivity);
 
 }
