@@ -5,7 +5,7 @@ import com.dagger2.pojo.Car;
 
 import dagger.Component;
 
-@Component
+@Component(modules = WheelsModule.class)
 public interface CarComponent {
 
     // Method name can be anything dagger is

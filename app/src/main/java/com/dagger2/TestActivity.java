@@ -7,8 +7,6 @@ import android.os.Bundle;
 import com.dagger2.di.CarComponent;
 import com.dagger2.di.DaggerCarComponent;
 import com.dagger2.pojo.Car;
-import com.dagger2.pojo.Engine;
-import com.dagger2.pojo.Wheels;
 
 import javax.inject.Inject;
 
