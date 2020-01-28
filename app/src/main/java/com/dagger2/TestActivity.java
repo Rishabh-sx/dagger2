@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.dagger2.di.CarComponent;
+import com.dagger2.di.DaggerCarComponent;
 import com.dagger2.pojo.Car;
 import com.dagger2.pojo.Engine;
 import com.dagger2.pojo.Wheels;
@@ -17,13 +19,9 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+        CarComponent component = DaggerCarComponent.create();
 
-        Engine engine = new Engine();
-        Wheels wheels = new Wheels();
-
-
-        Car car = new Car(engine,wheels);
-
+        car = component.getCar();
         car.drive();
     }
 }
