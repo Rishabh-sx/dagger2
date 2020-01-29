@@ -2,10 +2,8 @@ package com.dagger2.pojo;
 
 import javax.inject.Inject;
 
-public class Engine {
+public interface Engine {
 
-    @Inject
-    public Engine() {
-    }
+    public void start();
 
 }
