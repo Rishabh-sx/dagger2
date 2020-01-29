@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.dagger2.di.CarComponent;
 import com.dagger2.di.DaggerCarComponent;
+import com.dagger2.di.DieselEngineModule;
 import com.dagger2.pojo.Car;
 
 import javax.inject.Inject;
@@ -22,9 +23,13 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        CarComponent component = DaggerCarComponent.create();
-        component.inject(this);
+        CarComponent component = DaggerCarComponent
+                .builder()
+                .horsePower(100)
+                .engineCapacity(2000)
+                .build();
 
+        component.inject(this);
         car.drive();
     }
 }
