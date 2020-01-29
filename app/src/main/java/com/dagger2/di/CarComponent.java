@@ -2,13 +2,14 @@ package com.dagger2.di;
 
 import com.dagger2.TestActivity;
 import com.dagger2.pojo.Car;
-import com.dagger2.pojo.engines.PetrolEngine;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
+@Singleton
 @Component(modules = {WheelsModule.class, PetrolEngineModule.class})
 public interface CarComponent {
 

@@ -16,7 +16,7 @@ public class TestActivity extends AppCompatActivity {
     //Dagger field injection does not works with private & final fields
     //as it internally access the fields object of consumer class and inject
     //the field dependencies.
-    @Inject public Car car;
+    @Inject public Car car,car2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +31,6 @@ public class TestActivity extends AppCompatActivity {
 
         component.inject(this);
         car.drive();
+        car2.drive();
     }
 }
