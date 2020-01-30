@@ -2,6 +2,7 @@ package com.dagger2.pojo;
 
 import android.util.Log;
 
+import com.dagger2.di.ActivityScope;
 import com.dagger2.externalLibrary.Wheels;
 
 import javax.inject.Inject;
@@ -9,6 +10,7 @@ import javax.inject.Inject;
 // Order Of Dagger to execute inject annotation
 // Constructor -> Fields -> Methods
 
+@ActivityScope
 public class Car {
 
     private static final String TAG = "Car";

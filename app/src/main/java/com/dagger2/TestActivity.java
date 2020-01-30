@@ -4,11 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.dagger2.di.CarComponent;
-import com.dagger2.di.DaggerCarComponent;
-import com.dagger2.di.DieselEngineModule;
-import com.dagger2.pojo.Car;
+import com.dagger2.di.ActivityComponent;
 
+import com.dagger2.di.DaggerActivityComponent;
+import com.dagger2.pojo.Car;
 import javax.inject.Inject;
 
 public class TestActivity extends AppCompatActivity {
@@ -23,10 +22,10 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        CarComponent component = DaggerCarComponent
-                .builder()
-                .horsePower(100)
-                .engineCapacity(2000)
+        ActivityComponent component = DaggerActivityComponent.builder()
+                .horsePower(120)
+                .engineCapacity(1400)
+                .appComponent(((App) getApplication()).getAppComponent())
                 .build();
 
         component.inject(this);

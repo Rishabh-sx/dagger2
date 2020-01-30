@@ -8,23 +8,20 @@ import dagger.Provides;
 
 @Module
 public class DieselEngineModule {
-
-    int horsePower;
+    private int horsePower;
 
     public DieselEngineModule(int horsePower) {
         this.horsePower = horsePower;
     }
 
     @Provides
-    int providesHorsePower() {
+    int provideHorsePower() {
         return horsePower;
     }
 
     @Provides
-    Engine providesEngine() {
-        return new DieselEngine(horsePower);
+    Engine provideEngine(DieselEngine engine) {
+        return engine;
     }
-
 }
-
 
