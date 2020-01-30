@@ -6,7 +6,6 @@ import android.os.Bundle;
 
 import com.dagger2.di.ActivityComponent;
 
-import com.dagger2.di.DaggerActivityComponent;
 import com.dagger2.pojo.Car;
 import javax.inject.Inject;
 
@@ -22,10 +21,10 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        ActivityComponent component = DaggerActivityComponent.builder()
-                .horsePower(120)
+        ActivityComponent component = ((App) getApplication()).getAppComponent()
+                .getActivityComponentBuilder()
+                .horsePower(150)
                 .engineCapacity(1400)
-                .appComponent(((App) getApplication()).getAppComponent())
                 .build();
 
         component.inject(this);

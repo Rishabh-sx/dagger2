@@ -7,9 +7,11 @@ import javax.inject.Named;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import dagger.Subcomponent;
 
 @ActivityScope
-@Component(dependencies = AppComponent.class, modules = {WheelsModule.class, PetrolEngineModule.class})
+
+@Subcomponent(modules = {WheelsModule.class, PetrolEngineModule.class})
 public interface ActivityComponent {
 
     Car getCar();
@@ -17,7 +19,7 @@ public interface ActivityComponent {
     void inject(TestActivity mainActivity);
 
 
-    @Component.Builder
+    @Subcomponent.Builder
     interface Builder {
 
         @BindsInstance
@@ -25,8 +27,6 @@ public interface ActivityComponent {
 
         @BindsInstance
         Builder engineCapacity(@Named("engineCapacity") int engineCapacity);
-
-        Builder appComponent(AppComponent component);
 
         ActivityComponent build();
     }

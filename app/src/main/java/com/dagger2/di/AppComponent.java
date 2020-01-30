@@ -9,6 +9,6 @@ import dagger.Component;
 @Singleton
 @Component(modules = DriverModule.class)
 public interface AppComponent {
- 
-    Driver getDriver();
+
+    ActivityComponent.Builder getActivityComponentBuilder();
 }
